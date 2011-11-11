@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+#
+#  Created on 2011-11-10.
+#  Copyright (c) 2011. All rights reserved.
+
+require 'rubygems'
+require File.expand_path(File.dirname(__FILE__) + "/../lib/bmi")
+require "bmi/cli"
+
+data = Bmi::CLI.execute(STDOUT, ARGV)
+
+puts data
+
+if data[:weight_k].to_f > 0 
+
+  if data[:height_m].to_f > 0
+    bmi = (data[:weight_k].to_f)/(data[:height_m].to_f * data[:height_m].to_f)
+  end
+
+  if data[:height_i].to_f >0
+    meters = data[:height_i].to_f * 0.0254
+    bmi = (data[:weight_k].to_f)/(meters * meters)
+  end
+
+end
+
+
+if data[:weight_p].to_f > 0
+
+  if data[:height_m].to_f > 0
+    pounds = data[:weight_p].to_f 
+    inches = data[:height_m].to_f * 39.3700787
+
+    bmi = ((pounds)/(inches * inches))*703
+  end
+
+  if data[:height_i].to_f > 0
+
+    inches = data[:height_i].to_f
+    pounds = data[:weight_p].to_f
+
+    bmi = ((pounds)/(inches * inches))*703
+  end
+
+end
+
+puts bmi
