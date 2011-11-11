@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+#
+#  Created on 2011-11-10.
+#  Copyright (c) 2011. All rights reserved.
+
+require 'rubygems'
+require File.expand_path(File.dirname(__FILE__) + "/../lib/bmi")
+require "bmi/cli"
+
+data = Bmi::CLI.execute(STDOUT, ARGV)
+
+data.select!{ |k, v| v.to_f > 0 }
+
+imperial = false
+imperial = true if data[:weight_p] && data[:height_i]
+
+metric   = false
+metric   = true if data[:weight_k] && data[:height_m]
+
+weight = data[:weight_k] || data[:weight_p]  
+height = data[:height_m] || data[:height_i]  
+
+weight = weight.to_f
+height = height.to_f
+
+if imperial
+  bmi =( ( weight ) / ( height * height ) ) * 703
+end
+
+if metric
+  bmi =( weight ) / ( height * height )
+end
+
+puts bmi if bmi
