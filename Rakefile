@@ -1,5 +1,8 @@
 require 'rubygems'
 gem 'hoe', '>= 2.1.0'
+#gem 'rake'
+#gem 'rdoc'
+#gem 'rubyforge'
 require 'hoe'
 require 'fileutils'
 require './lib/bmi'

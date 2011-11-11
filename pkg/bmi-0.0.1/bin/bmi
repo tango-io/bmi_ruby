@@ -9,36 +9,34 @@ require "bmi/cli"
 
 data = Bmi::CLI.execute(STDOUT, ARGV)
 
-puts data
+#puts data
 
-if data[:weight_k].to_f > 0 
+kilograms = data[:weight_k].to_f
+pounds    = data[:weight_p].to_f
+meters    = data[:height_m].to_f
+inches    = data[:height_i].to_f
 
-  if data[:height_m].to_f > 0
-    bmi = (data[:weight_k].to_f)/(data[:height_m].to_f * data[:height_m].to_f)
+if kilograms > 0 
+
+  if meters > 0
+    bmi = (kilograms)/(meters * meters)
   end
 
-  if data[:height_i].to_f >0
-    meters = data[:height_i].to_f * 0.0254
-    bmi = (data[:weight_k].to_f)/(meters * meters)
+  if inches >0
+    meters = inches * 0.0254
+    bmi = (kilograms)/(meters * meters)
   end
 
 end
 
+if pounds > 0
 
-if data[:weight_p].to_f > 0
-
-  if data[:height_m].to_f > 0
-    pounds = data[:weight_p].to_f 
-    inches = data[:height_m].to_f * 39.3700787
-
+  if meters > 0
+    inches = meters * 39.3700787
     bmi = ((pounds)/(inches * inches))*703
   end
 
-  if data[:height_i].to_f > 0
-
-    inches = data[:height_i].to_f
-    pounds = data[:weight_p].to_f
-
+  if inches > 0
     bmi = ((pounds)/(inches * inches))*703
   end
 
