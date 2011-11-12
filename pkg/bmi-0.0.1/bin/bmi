@@ -31,4 +31,10 @@ if metric
   bmi =( weight ) / ( height * height )
 end
 
-puts bmi if bmi
+if bmi
+  prime = ( bmi % 25 )
+  prcnt = (prime.to_s).match(/\.\d./)
+  prcnt = (prcnt[0]).match(/\d./)
+  puts "Your body mass index is: #{bmi.round}"
+  puts "You are #{prcnt}% over your ideal weight"
+end
