@@ -7,7 +7,7 @@ require 'rubygems'
 require File.expand_path(File.dirname(__FILE__) + "/../lib/bmi")
 require "bmi/cli"
 
-data = Bmi::CLI.execute(STDOUT, ARGV)
+data = Bmi::CLI.calc(ARGV)
 
 data.select!{ |k, v| v.to_f > 0 }
 
