@@ -128,12 +128,16 @@ class BMI
 
     if @imperial 
       imperial()
-    else
+      prime()
+      cases()
+    end
+
+    if @metric
       metric()
+      prime()
+      cases()
     end
     
-    prime()
-    cases()
   end
 
   VERSION = '0.0.1'
