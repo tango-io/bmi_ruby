@@ -1,32 +1,44 @@
 = bmi
 
-* http://github.com/#{github_username}/#{project_name}
+* http://github.com/#{github_narcisoguillen}/#{project_BMI}
 
 == DESCRIPTION:
 
-FIX (describe your package)
+The Body Mass Index (BMI) Gem is usefull to calculate your BMI from console, and add this gem to your ruby project and use it. See 'bmi -h' to read the instructions of usage.
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+Write in your comand line 'bmi -w (YourWeight) -b (Your height)' to calculate your BMI, see 'bmi -h' for more features.
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+  $ bmi -w 86 -b 1.77
+  Your body mass index is: 27
+  You are 9% over your ideal weight
+  Overweight
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+To build this Gem were installed the following gems:
+
+  gem install newgem
+  gem install hoe
+  gem install rake
+  gem install rubyforge
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+To install this Gem you only need to run:
+
+  Gem install bmi
+
+The Gem is uploaded to http://rubygems.org/
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2011 FIXME full name
+Copyright (c) 2011 Body Mass Index (BMI)
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
