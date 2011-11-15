@@ -2,14 +2,11 @@ $:.unshift(File.dirname(__FILE__)) unless
 $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
 require 'rubygems'
-#require File.expand_path(File.dirname(__FILE__) + "/../lib/bmi")
-#require "bmi/cli"
 require 'optparse'
 
-#Bmi::CLI
 class BMI
 
-  attr_accessor :data
+  attr_accessor :data, :metric, :imperial, :bmi, :metric, :percent
 
   def initialize(data={})    
     @data = data
@@ -25,6 +22,7 @@ class BMI
     @height   = 0
     @bmi      = 0
     @prime    = 0
+    @percent  = 0
   end
 
   def loadata(arguments=[])
@@ -83,42 +81,47 @@ class BMI
     @height = @height.to_f
   end
 
-  def imperial
+  def get_imperial
     @bmi =( ( @weight ) / ( @height * @height ) ) * 703
   end
 
-  def metric
+  def get_metric
     @bmi =( @weight ) / ( @height * @height )
   end
 
-  def prime
+  def get_prime
     @prime = ( @bmi / 25 )
-    prcnt = (@prime.to_s).match(/\.\d./)
-    prcnt = (prcnt[0]).match(/\d./)
+    prcnt = (@prime.to_s).match(/\.\d+/)
+    prcnt = (prcnt[0]).match(/\d+/)
     puts "Your body mass index is: #{@bmi.round}"
-
+    
+    
+    @percent=prcnt[0].to_i
     if @prime.to_i <= 0
-      puts "You are #{100 - prcnt[0].to_i}% under your ideal weight"
+      @percent=100 - @percent
+      puts "You are #{@percent}% under your ideal weight"
     else
-      puts "You are #{prcnt[0].to_i}% over your ideal weight"
+      puts "You are #{@percent}% over your ideal weight"
     end
+    return @percent.to_s+"%"
   end
 
   def cases
     case
     when @bmi < 18.5
-      puts "Underweight"
+      msj= "Underweight"
     when @bmi.between?(18.5,24.9)
-      puts "Normal"
+      msj= "Normal"
     when @bmi.between?(25,29.9)
-      puts "Overweight"
+      msj= "Overweight"
     when @bmi.between?(30,35)
-      puts "Obese Class I"
+      msj= "Obese Class I"
     when @bmi.between?(35,40)
-      puts "Obese Class II"
+      msj= "Obese Class II"
     when @bmi > 40
-      puts "Obese Class III"
+      msj= "Obese Class III"
     end
+    return msj
   end
 
   def calc(arguments=[])
@@ -127,14 +130,14 @@ class BMI
     determinates() 
 
     if @imperial 
-      imperial()
-      prime()
+      get_imperial()
+      get_prime()
       cases()
     end
 
     if @metric
-      metric()
-      prime()
+      get_metric()
+      get_prime()
       cases()
     end
     
