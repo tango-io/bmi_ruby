@@ -12,9 +12,9 @@ Write in your comand line 'bmi -w (YourWeight) -b (Your height)' to calculate yo
 
 == SYNOPSIS:
 
-=== Imperial BMI Formula
+Imperial BMI Formula
 
-*Bash*
+Bash
 
   bmi -W 189.597 -B 69.6850
 
@@ -22,7 +22,7 @@ Write in your comand line 'bmi -w (YourWeight) -b (Your height)' to calculate yo
   You are 9% over your ideal weight
   Overweight
 
-*Rails*
+Rails
 
   require 'bmi'
   bmi = BMI.new
@@ -36,16 +36,16 @@ Write in your comand line 'bmi -w (YourWeight) -b (Your height)' to calculate yo
   Overweight
 
 
-=== Metric Imperial BMI Formula
+Metric Imperial BMI Formula
 
-*Bash*
+Bash
 
   bmi -w 86 -b 1.77
   Your body mass index is: 27
   You are 9% over your ideal weight
   Overweight
 
-*Rails*
+Rails
 
   require 'bmi'
   bmi = BMI.new
