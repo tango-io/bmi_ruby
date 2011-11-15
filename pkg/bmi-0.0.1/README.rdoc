@@ -12,12 +12,56 @@ Write in your comand line 'bmi -w (YourWeight) -b (Your height)' to calculate yo
 
 == SYNOPSIS:
 
-  $ bmi -w 86 -b 1.77
+=== Imperial BMI Formula
+
+*Bash*
+
+  bmi -W 189.597 -B 69.6850
+
   Your body mass index is: 27
   You are 9% over your ideal weight
   Overweight
 
+*Rails*
+
+  require 'bmi'
+  bmi = BMI.new
+  data = []
+  data[0]='-W 189.597'
+  data[1]='-B 69.6850'
+  bmi.calc(data)+
+
+  Your body mass index is: 27
+  You are 9% over your ideal weight
+  Overweight
+
+
+=== Metric Imperial BMI Formula
+
+*Bash*
+
+  bmi -w 86 -b 1.77
+  Your body mass index is: 27
+  You are 9% over your ideal weight
+  Overweight
+
+*Rails*
+
+  require 'bmi'
+  bmi = BMI.new
+  data = [] 
+  data[0]='-w 86'
+  data[1]='-b 1.77'
+  bmi.calc(data)
+
+  Your body mass index is: 27
+  You are 9% over your ideal weight
+  Overweight
+
+
 == REQUIREMENTS:
+
+  Requires ~> ruby-1.9.2-p290
 
 To build this Gem were installed the following gems:
 

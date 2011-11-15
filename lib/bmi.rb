@@ -137,6 +137,6 @@ class BMI
     
   end
 
-  VERSION = '1.0.2'
+  VERSION = '0.0.1'
 end
  
