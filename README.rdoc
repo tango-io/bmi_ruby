@@ -1,6 +1,6 @@
 = bmi
 
-* http://github.com/#{github_username}/#{project_name}
+* http://github.com/#{github_narcisoguillen}/#{project_BMI}
 
 == DESCRIPTION:
 
@@ -12,7 +12,6 @@ Write in your comand line 'bmi -w (YourWeight) -b (Your height)' to calculate yo
 
 == SYNOPSIS:
 
-  thenaox@thenaox-Satellite-L455:~/bmi 
   $ bmi -w 86 -b 1.77
   Your body mass index is: 27
   You are 9% over your ideal weight
@@ -25,6 +24,7 @@ To build this Gem were installed the following gems:
   gem install newgem
   gem install hoe
   gem install rake
+  gem install rubyforge
 
 == INSTALL:
 
